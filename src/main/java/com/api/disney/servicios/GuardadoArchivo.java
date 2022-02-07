@@ -15,7 +15,7 @@ public class GuardadoArchivo {
     @Value("${web.upload-path}")
     private String carpetaGuardado;
 
-    public void guardarArchivo(MultipartFile archivo) throws IOException{
+    public void guardar(MultipartFile archivo) throws IOException{
         if(!archivo.isEmpty()){
             byte[] bytes = archivo.getBytes();
             Path path = Paths.get(carpetaGuardado + archivo.getOriginalFilename());
