@@ -22,7 +22,7 @@ public class Personaje {
     private String imagen;
     private String nombre;
     private Integer edad;
-    private Integer peso;
+    private Double peso;
     private String historia;
     private Boolean alta;
 
