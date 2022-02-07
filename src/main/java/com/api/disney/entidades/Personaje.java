@@ -13,6 +13,7 @@ import org.hibernate.annotations.SQLDelete;
 
 @Data
 @Entity
+@SQLDelete(sql = "UPDATE personaje SET alta = false WHERE id = ?")
 public class Personaje {
 
     @Id
