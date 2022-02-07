@@ -8,7 +8,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
-@RestController("/characters")
+@RestController
+@RequestMapping("/characters")
 public class PersonajeController {
 
     @Autowired
