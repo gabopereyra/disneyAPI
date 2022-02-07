@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import lombok.Data;
+import org.hibernate.annotations.SQLDelete;
 
 @Data
 @Entity
@@ -22,6 +23,7 @@ public class Personaje {
     private Integer edad;
     private Integer peso;
     private String historia;
+    private Boolean alta;
 
     @ManyToMany
     @JoinTable(name = "personajes_por_cinematografia",
@@ -29,5 +31,5 @@ public class Personaje {
                     @JoinColumn(name="id_personaje")},
             inverseJoinColumns={
                     @JoinColumn(name="id_pelicula")})
-    private List<Cinematografia> peliculasSerie;
+    private List<PeliculaSerie> peliculasSerie;
 }

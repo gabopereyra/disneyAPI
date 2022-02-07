@@ -14,6 +14,7 @@ public class Genero {
     private String nombre;
     private String imagen;
 
+
     @OneToMany(mappedBy = "genero")
-    private List<Cinematografia> peliculasSerie;
+    private List<PeliculaSerie> peliculasSerie;
 }

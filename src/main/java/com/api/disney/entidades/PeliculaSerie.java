@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 @Entity
-public class Cinematografia {
+public class PeliculaSerie {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
