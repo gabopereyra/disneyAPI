@@ -27,7 +27,7 @@ public class Personaje {
     private Boolean alta;
 
     @ManyToMany
-    @JoinTable(name = "personajes_por_cinematografia",
+    @JoinTable(name = "personajes_por_pelicula",
             joinColumns={
                     @JoinColumn(name="id_personaje")},
             inverseJoinColumns={
