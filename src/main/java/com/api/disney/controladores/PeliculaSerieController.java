@@ -1,4 +1,4 @@
 package com.api.disney.controladores;
 
-public class CinematograficaController {
+public class PeliculaSerieController {
 }
