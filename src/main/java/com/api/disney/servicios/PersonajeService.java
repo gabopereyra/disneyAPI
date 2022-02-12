@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,13 +19,16 @@ public class PersonajeService {
     private PersonajeRepository personajeRepository;
 
     @Autowired
-    private GuardadoArchivo guardadoArchivo;
+    private ArchivoService fileService;
 
-    public Personaje guardar(Personaje personaje, MultipartFile image) throws IOException {
-        guardadoArchivo.guardar(image);
+    @Transactional
+    public Personaje guardar(Personaje personaje, MultipartFile image) {
+        fileService.uploadFile(image);
+        personaje.setAlta(true);
         return personajeRepository.save(personaje);
     }
 
+    @Transactional
     public String listadoPersonajes(){
         List<Personaje> listado = (ArrayList<Personaje>) personajeRepository.findAll();
 
