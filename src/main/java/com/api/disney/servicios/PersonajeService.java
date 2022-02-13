@@ -24,8 +24,24 @@ public class PersonajeService {
     @Transactional
     public Personaje guardar(Personaje personaje, MultipartFile image) {
         fileService.uploadFile(image);
+        personaje.setImagen(image.getOriginalFilename());
         personaje.setAlta(true);
         return personajeRepository.save(personaje);
+    }
+
+    @Transactional
+    public Personaje modificar(Personaje personaje, MultipartFile image, Integer id) {
+        if(personajeRepository.findById(id).isPresent()){
+            fileService.uploadFile(image);
+            personaje.setImagen(image.getOriginalFilename());
+            return personajeRepository.save(personaje);
+        }
+        return null;
+    }
+
+    @Transactional
+    public void borrar(Integer id){
+        personajeRepository.deleteById(id);
     }
 
     @Transactional
