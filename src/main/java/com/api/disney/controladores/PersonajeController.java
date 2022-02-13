@@ -17,7 +17,7 @@ public class PersonajeController {
     private PersonajeService personajeService;
 
     @GetMapping
-    public String listadoPersojees(){
+    public String listadoPersonajes(){
         return personajeService.listadoPersonajes();
     }
 
