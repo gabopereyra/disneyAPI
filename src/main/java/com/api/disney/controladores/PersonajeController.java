@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
+
 @RestController
 @RequestMapping("/characters")
 public class PersonajeController {
@@ -36,4 +38,19 @@ public class PersonajeController {
         personajeService.borrar(id);
     }
 
+    @GetMapping(params = "name")
+    public ArrayList<Personaje> obtenerPorNombre(@RequestParam("name") String nombre){
+        return personajeService.obtenerPorNombre(nombre);
+    }
+
+    @GetMapping(params = "age")
+    public ArrayList<Personaje> obtenerPorEdad(@RequestParam("age") Integer edad){
+        return personajeService.obtenerPorEdad(edad);
+    }
+
+    @GetMapping(params = "weight")
+    public ArrayList<Personaje> obtenerPorPeso(@RequestParam("weight") Double peso){
+        return personajeService.obtenerPorPeso(peso);
+    }
+    
 }

@@ -61,5 +61,19 @@ public class PersonajeService {
         return dataPrincipal.toString();
     }
 
+    @Transactional
+    public ArrayList<Personaje> obtenerPorNombre(String nombre){
+        return personajeRepository.findByNombre(nombre);
+    }
+
+    @Transactional
+    public ArrayList<Personaje> obtenerPorEdad(Integer edad){
+        return personajeRepository.findByEdad(edad);
+    }
+
+    @Transactional
+    public ArrayList<Personaje> obtenerPorPeso(Double peso){
+        return personajeRepository.findByPeso(peso);
+    }
 
 }
