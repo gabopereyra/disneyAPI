@@ -1,5 +1,6 @@
 package com.api.disney.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
 
@@ -18,5 +19,6 @@ public class Genero {
     private Boolean alta;
 
     @OneToMany(mappedBy = "genero")
+    @JsonIgnore
     private List<PeliculaSerie> peliculasSerie;
 }
