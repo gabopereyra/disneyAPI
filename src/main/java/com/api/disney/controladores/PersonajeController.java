@@ -49,5 +49,10 @@ public class PersonajeController {
     public ArrayList<Personaje> obtenerPorPeso(@RequestParam("weight") Double peso){
         return personajeService.obtenerPorPeso(peso);
     }
+
+    @GetMapping(params = "movies")
+    public ArrayList<Personaje> obtenerPorPelicula(@RequestParam("movies") Integer movie){
+        return personajeService.obtenerPorPelicula(movie);
+    }
     
 }

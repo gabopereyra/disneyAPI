@@ -76,4 +76,9 @@ public class PersonajeService {
         return personajeRepository.findByPeso(peso);
     }
 
+    @Transactional
+    public ArrayList<Personaje> obtenerPorPelicula(Integer movie){
+        return personajeRepository.findByPeliculaSerie(movie);
+    }
+
 }
