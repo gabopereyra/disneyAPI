@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
 
@@ -32,5 +34,6 @@ public class Personaje {
                     @JoinColumn(name="id_personaje")},
             inverseJoinColumns={
                     @JoinColumn(name="id_pelicula")})
+    @JsonIgnore
     private List<PeliculaSerie> peliculasSerie;
 }
