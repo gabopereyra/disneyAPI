@@ -1,6 +1,5 @@
 package com.api.disney.entidades;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -24,7 +23,12 @@ public class PeliculaSerie {
     private LocalDate fechaCreacion;
     private Integer calificacion;
 
-    @ManyToMany(mappedBy="peliculasSerie")
+    @ManyToMany
+    @JoinTable(name = "personajes_por_pelicula",
+            joinColumns={
+                    @JoinColumn(name="id_pelicula")},
+            inverseJoinColumns={
+                    @JoinColumn(name="id_personaje")})
     private List<Personaje> personajes;
 
     @ManyToOne

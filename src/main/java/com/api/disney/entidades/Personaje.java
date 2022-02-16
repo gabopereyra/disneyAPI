@@ -5,8 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -28,12 +26,7 @@ public class Personaje {
     private String historia;
     private Boolean alta;
 
-    @ManyToMany
-    @JoinTable(name = "personajes_por_pelicula",
-            joinColumns={
-                    @JoinColumn(name="id_personaje")},
-            inverseJoinColumns={
-                    @JoinColumn(name="id_pelicula")})
+    @ManyToMany(mappedBy="personajes")
     @JsonIgnore
     private List<PeliculaSerie> peliculasSerie;
 }

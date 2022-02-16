@@ -1,7 +1,6 @@
 package com.api.disney.servicios;
 
 import com.api.disney.entidades.PeliculaSerie;
-import com.api.disney.entidades.Personaje;
 import com.api.disney.repositorios.PeliculaSerieRepository;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -12,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PeliculaSerieService {
@@ -62,8 +62,8 @@ public class PeliculaSerieService {
         return dataPrincipal.toString();
     }
 
-    public PeliculaSerie obtenerPorId(Integer id){
-        return peliculaSerieRepository.getById(id);
+    public Optional<PeliculaSerie> obtenerPorId(Integer id){
+        return peliculaSerieRepository.findById(id);
     }
 
 }
