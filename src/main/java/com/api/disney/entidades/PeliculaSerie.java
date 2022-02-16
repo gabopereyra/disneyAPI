@@ -3,6 +3,7 @@ package com.api.disney.entidades;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -19,7 +20,7 @@ public class PeliculaSerie {
     private String imagen;
     private String titulo;
 
-    @JsonFormat(pattern="dd/mm/yyyy")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate fechaCreacion;
     private Integer calificacion;
 
