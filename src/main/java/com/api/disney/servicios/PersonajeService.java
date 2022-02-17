@@ -1,6 +1,5 @@
 package com.api.disney.servicios;
 
-import com.api.disney.entidades.PeliculaSerie;
 import com.api.disney.entidades.Personaje;
 import com.api.disney.repositorios.PersonajeRepository;
 import org.json.JSONArray;
