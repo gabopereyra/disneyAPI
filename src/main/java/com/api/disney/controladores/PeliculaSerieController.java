@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -39,5 +40,17 @@ public class PeliculaSerieController {
         return peliculaSerieService.obtenerPorId(id);
     }
 
+    @GetMapping(params = "name")
+    public List<PeliculaSerie> obtenerPorNombre(@RequestParam("name") String nombre){
+        return peliculaSerieService.obtenerPorNombre(nombre);
+    }
+    @GetMapping(params = "genre")
+    public List<PeliculaSerie> obtenerPorGenero(@RequestParam("genre") Integer genre){
+        return peliculaSerieService.obtenerPorGenero(genre);
+    }
+    @GetMapping(params = "order")
+    public List<PeliculaSerie> ordenarPorFecha(@RequestParam("order") String order){
+        return peliculaSerieService.ordenarPorFecha(order);
+    }
 
 }

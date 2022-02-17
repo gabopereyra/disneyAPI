@@ -5,11 +5,11 @@ import com.api.disney.repositorios.PeliculaSerieRepository;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,7 +46,7 @@ public class PeliculaSerieService {
 
     @Transactional
     public String listadoPeliculas(){
-        List<PeliculaSerie> listado = (ArrayList<PeliculaSerie>) peliculaSerieRepository.findAll();
+        List<PeliculaSerie> listado = peliculaSerieRepository.findAll();
 
         JSONArray dataPrincipal = new JSONArray();
 
@@ -66,4 +66,22 @@ public class PeliculaSerieService {
         return peliculaSerieRepository.findById(id);
     }
 
+    public List<PeliculaSerie> obtenerPorNombre(String nombre) {
+        return peliculaSerieRepository.findByTitulo(nombre);
+    }
+
+    public List<PeliculaSerie> obtenerPorGenero(Integer genre) {
+        return peliculaSerieRepository.findByGenero(genre);
+    }
+
+    @Transactional
+    public List<PeliculaSerie> ordenarPorFecha(String order) {
+        if (order.equals("ASC")) {
+            return peliculaSerieRepository.findAll(Sort.by(Sort.Direction.ASC, "fechaCreacion"));
+        } else if (order.equals("DESC")) {
+            return peliculaSerieRepository.findAll(Sort.by(Sort.Direction.DESC, "fechaCreacion"));
+        } else {
+            return null;
+        }
+    }
 }
