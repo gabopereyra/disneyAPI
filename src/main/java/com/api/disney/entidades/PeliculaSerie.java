@@ -10,7 +10,7 @@ import java.util.List;
 
 @Data
 @Entity
-@SQLDelete(sql = "UPDATE peliculaserie SET alta = false WHERE id = ?")
+@SQLDelete(sql = "UPDATE pelicula_serie SET alta = false WHERE id = ?")
 public class PeliculaSerie {
 
     @Id
