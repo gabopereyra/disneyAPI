@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,7 +46,7 @@ public class PersonajeService {
 
     @Transactional
     public String listadoPersonajes(){
-        List<Personaje> listado = (ArrayList<Personaje>) personajeRepository.findAll();
+        List<Personaje> listado = personajeRepository.findAll();
 
         JSONArray dataPrincipal = new JSONArray();
 
@@ -63,22 +62,22 @@ public class PersonajeService {
     }
 
     @Transactional
-    public ArrayList<Personaje> obtenerPorNombre(String nombre){
+    public List<Personaje> obtenerPorNombre(String nombre){
         return personajeRepository.findByNombre(nombre);
     }
 
     @Transactional
-    public ArrayList<Personaje> obtenerPorEdad(Integer edad){
+    public List<Personaje> obtenerPorEdad(Integer edad){
         return personajeRepository.findByEdad(edad);
     }
 
     @Transactional
-    public ArrayList<Personaje> obtenerPorPeso(Double peso){
+    public List<Personaje> obtenerPorPeso(Double peso){
         return personajeRepository.findByPeso(peso);
     }
 
     @Transactional
-    public ArrayList<Personaje> obtenerPorPelicula(Integer movie){
+    public List<Personaje> obtenerPorPelicula(Integer movie){
         return personajeRepository.findByPeliculaSerie(movie);
     }
 
