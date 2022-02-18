@@ -9,8 +9,8 @@ import java.util.List;
 
 @Repository
 public interface PeliculaSerieRepository extends JpaRepository<PeliculaSerie, Integer> {
-    public List<PeliculaSerie> findByTitulo(String nombre);
+    List<PeliculaSerie> findByTitulo(String nombre);
 
     @Query(value = "SELECT * FROM pelicula_serie where id_genero = ?", nativeQuery = true)
-    public List<PeliculaSerie> findByGenero(Integer genero);
+    List<PeliculaSerie> findByGenero(Integer genero);
 }
