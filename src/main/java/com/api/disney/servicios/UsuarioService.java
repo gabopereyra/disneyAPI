@@ -25,6 +25,9 @@ public class UsuarioService {
     @Autowired
     private BCryptPasswordEncoder encoder;
 
+    @Autowired
+    private EmailService emailService;
+
     @Transactional
     public Usuario guardar(Usuario usuario) throws Exception {
         if(existeMail(usuario.getMail())){
@@ -32,6 +35,8 @@ public class UsuarioService {
         }
         usuario.setPassword(encoder.encode(usuario.getPassword()));
         usuario.setAlta(true);
+
+        emailService.sendThread(usuario.getMail());
 
         return usuarioRepository.save(usuario);
     }
