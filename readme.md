@@ -11,7 +11,7 @@ exponer la información para que cualquier frontend pueda consumirla.</p>
 <p>✅ Listado de todos personajes, peliculas/series, generos.</p>
 <p>✅ Búsquedas en las diferentes entidades según parametros de queries.</p>
 <p>✅ Seguridad, a través de registro de usuarios y posterior validación con Json Web Token (JWT)</p>
-<p>Para mayor detalle, favor de remitirse a la documentación de la app: <a>https://documenter.getpostman.com/view/18793463/UVkjwJ79</a></p>
+<p>Para mayor detalle, favor de remitirse a la documentación de la app: <a href="https://documenter.getpostman.com/view/18793463/UVkjwJ79">https://documenter.getpostman.com/view/18793463/UVkjwJ79</a></p>
 <hr>
 <h3>Dependencias utilizadas:</h3>
 <p>✅ Spring Web</p>
@@ -24,6 +24,6 @@ exponer la información para que cualquier frontend pueda consumirla.</p>
 <p>✅ Lombok</p>
 <p>✅ Mail Sender</p>
 <hr>
-📃Documentación: <a>https://documenter.getpostman.com/view/18793463/UVkjwJ79</a>
+📃Documentación: <a href="https://documenter.getpostman.com/view/18793463/UVkjwJ79">https://documenter.getpostman.com/view/18793463/UVkjwJ79</a>
 <hr>
 <p align="center">Made it with ♥ by Gabo 🐰</p>
